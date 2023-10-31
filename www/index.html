@@ -12,9 +12,15 @@
         });
 
         async function getTheTime() {
-            const response = await fetch(`${config.api}/data`);
+            const response = await fetch(`${config.api}/date`);
             const data = await response.json();
             document.querySelector("#now").textContent = `The cloud says it's ${new Date(data.now).toLocaleTimeString()}.`;
+        }
+
+        async function getTheWeather() {
+            const response = await fetch(`${config.api}/weather`);
+            const data = await response.json();
+            document.querySelector("#weather").textContent = `The cloud says the weather is ${data}.`;
         }
     </script>
 </head>
@@ -23,6 +29,12 @@
     <p>
         <button onclick="getTheTime()">Ask the cloud!</button>
         <span id="now"></span>
+    </p>
+
+    <h1>🌤️ What's the weather?</h1>
+    <p>
+        <button onclick="getTheWeather()">Ask the cloud!</button>
+        <span id="weather"></span>
     </p>
     <p>Deployed with 💜 by <a href="https://pulumi.com/templates">Pulumi</a>.</p>
 </body>
