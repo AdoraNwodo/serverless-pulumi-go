@@ -1,0 +1,6 @@
+config:
+  azure-native:location: WestUS
+  serverless-pulumi-go:appPath: ./app
+  serverless-pulumi-go:errorDocument: error.html
+  serverless-pulumi-go:indexDocument: index.html
+  serverless-pulumi-go:sitePath: ./www
